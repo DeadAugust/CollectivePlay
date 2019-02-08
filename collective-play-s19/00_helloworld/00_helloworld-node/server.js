@@ -13,7 +13,7 @@ http.createServer(function (req, res) {
   res.writeHead(200);
   // Send a message back to the client
   // No html required!
-  res.end(';)', req);
+  res.end('Hello world!', req);
 }).listen(port);
 
 console.log('Server listening on port: ', port);

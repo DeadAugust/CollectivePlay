@@ -31,6 +31,7 @@ function drawPos(username, pos) {
   text(username, 10, 0);
   ellipse(0, 0, 10, 10);
   pop();
+  // console.log(username);
 }
 
 // Send mouse position only when mouse moves
@@ -42,6 +43,3 @@ function mouseMoved(){
 function usernameChanged(){
   socket.emit('username', this.value());
 }
-
-
-

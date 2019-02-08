@@ -4,7 +4,7 @@
    * [Office Hours Signup](https://itp.nyu.edu/inwiki/Signup/Mimi)
    * [Spring 2018 Repository](https://github.com/mimiyin/collective-play-s18)
 
-### [See course description below.](https://github.com/mimiyin/collective-play-s18/blob/master/README.md#course-description)
+### [See course description below.](https://github.com/mimiyin/collective-play-s19#course-description)
 
 ## Resources
    * Class Google Group. I will be adding you after the first class.
@@ -13,9 +13,8 @@
    * Most code examples will also be available in the p5 web editor.
 
 ## Tools
-   * [p5.js](http://p5js.org/) | [Reference](http://p5js.org/reference/) | [Web Editor](http://alpha.editor.p5js.org/)
-   * [Atom Editor](https://github.com/mimiyin/sense-me-move-me/wiki/Atom)
-   * [Atom Live Server Package](https://atom.io/packages/atom-live-server)
+   * [p5.js](http://p5js.org/) | [Reference](http://p5js.org/reference/) | [Web Editor](https://editor.p5js.org/)
+   * [Atom Editor](https://github.com/mimiyin/collective-play-s19/wiki/Atom-Editor)
    * [Node Server](https://nodejs.org/en/)
 
 # Design Strategy 1: Every man for himself
@@ -53,7 +52,7 @@
      * Normalizing data across clients
 
 #### Assignment: Hello World
-   * [Brainstorm Inputs](https://docs.google.com/spreadsheets/d/1b9LKOaFIROEpqssoxWhezXpO-kd9_njg_i2XblIOiFQ/edit#gid=0)
+   * [Brainstorm Inputs](https://docs.google.com/spreadsheets/d/1bEKzoevEpd8jgmHKU1we4AnMbRwMLGCD5YFSZvY37is/edit?usp=sharing)
    * Sign-up to implement 2 inputs. Implement 2 inputs.
    * Bring 5 things to draw with next week.
    * Wear clothes you can get dirty...forever.
@@ -71,18 +70,19 @@
    * Exercise: Collective Drawing
    * Collecting the next layer of input (ie. meta-data)
    * Code Examples:
-      * [Expressive Lines](https://editor.p5js.org/move.mimi/sketches/HyNmKKL4f)
+      * [Expressive Lines](https://editor.p5js.org/move.mimi/sketches/ByPtNLI4z): Press mouse to cycle through 4 modes.
+      * [Measuring Typing Speed](https://editor.p5js.org/mimiyin/sketches/osUkC5um-)
       * Pollacky
       * Texteoke
       * Finger Drumming
    * Links
-      * [Install Sensor Kinetics][iOS](https://itunes.apple.com/us/app/sensor-kinetics/id579040333?mt=8) | [Android](https://play.google.com/store/apps/details?id=com.innoventions.sensorkinetics&hl=en_US)
+      * Install Sensor Kinetics:[iOS](https://itunes.apple.com/us/app/sensor-kinetics/id579040333?mt=8) | [Android](https://play.google.com/store/apps/details?id=com.innoventions.sensorkinetics&hl=en_US)
       * [How to paint like Jackson Pollack](https://www.youtube.com/watch?v=EncR_T0faKM&t=40s)
       * [Laura Krudener](https://www.youtube.com/watch?v=X13bHWaP40Y)
       * [p5 and Mobile](https://github.com/ITPNYU/ICM-2017#10----mobile)
-      * [Glitch.com](https://glitch.com/edit/#!/hello-world-sockets)
 #### Assignment: Express yourself
-   * Re-work your hello world example to be more expressive
+   * Try your hand at diagramming the 3 examples in Github and drop them in my mailbox by Sunday evening. We will review them in class. 
+   * Re-work one of your hello world input examples to have a more expressive output
    * Please bring ear-bud headphones for your mobile device to class next week.
 
 ***
