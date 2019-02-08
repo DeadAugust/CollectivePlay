@@ -1,5 +1,6 @@
-// Open and connect socket
-let socket = io();
+// PLAYERS
+//Open and connect socket
+let socket = io('/players');
 
 function setup(){
   //- - - - - overall

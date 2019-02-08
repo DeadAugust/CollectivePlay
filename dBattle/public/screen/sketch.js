@@ -1,12 +1,13 @@
+// SCREEN
 // Open and connect socket
-let socket = io();
+let socket = io('/screen');
 
 function setup(){
   //- - - - - overall
 	// var screenSize = windowHeight - 100;
 	// createCanvas(int(screenSize * .666), screenSize);
 	createCanvas(windowWidth, windowHeight);
-	background(0, 150, 50);
+	background(0, 50, 150);
 
 
   // Listen for confirmation of connection

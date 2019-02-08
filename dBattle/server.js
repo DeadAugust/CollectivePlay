@@ -12,14 +12,12 @@ app.use(express.static('public'));
 // Create socket connection
 let io = require('socket.io').listen(server);
 
-// Listen for individual clients to connect
-io.sockets.on('connection',
-	// Callback function on connection
-  // Comes back with a socket object
-	function (socket) {
+//- - - - -  Player Sockets
+var players = io.of('/players');
 
-		console.log("We have a new client: " + socket.id);
-
+players.on('connection',	function (socket){
+		console.log('We have a new player: ' + socket.id);
+/*
     // Listen for data from this client
 		socket.on('data', function(data) {
       // Data can be numbers, strings, objects
@@ -34,10 +32,36 @@ io.sockets.on('connection',
       // Send it just this client
       // socket.emit('data', data);
 		});
-
+*/
     // Listen for this client to disconnect
 		socket.on('disconnect', function() {
 			console.log("Client has disconnected " + socket.id);
 		});
-	}
-);
+	});
+
+// - - - - Screen Socket
+var screen = io.of('/screen');
+
+screen.on('connection', function (socket) {
+		console.log("Screen connected: " + socket.id);
+/*
+    // Listen for data from this client
+		socket.on('data', function(data) {
+      // Data can be numbers, strings, objects
+			console.log("Received: 'data' " + data);
+
+			// Send it to all clients, including this one
+			io.sockets.emit('data', data);
+
+      // Send it to all other clients, not including this one
+      //socket.broadcast.emit('data', data);
+
+      // Send it just this client
+      // socket.emit('data', data);
+		});
+*/
+    // Listen for this client to disconnect
+		socket.on('disconnect', function() {
+			console.log("Screen has disconnected " + socket.id);
+		});
+	});
