@@ -1,7 +1,7 @@
-// PLAYERS -- TEAM SELECTION FOR PLAYER 1
+// PLAYERS -- TEAM SELECTION FOR PLAYER 2
 
 //Open and connect socket
-let socket = io('/players/team1');
+let socket = io('/players/team2');
 
 var bubbles = [];
 
@@ -28,18 +28,18 @@ function setup(){
 	// createCanvas(int(screenSize * .666), screenSize);
 	var canvas = createCanvas(windowWidth, windowHeight);
 	canvas.parent('myCanvas');
-	background(0, 150, 50);
+	background(0, 90, 200);
 	textAlign(CENTER);
 
 	// - - - - -  player start screen
 	textSize(30);
 	fill(0);
 	text('Choose Your Bubble\'s Color', width/2, height/12);
-	redSlide = createSlider(0,255,40);
+	redSlide = createSlider(0,255,180);
 	redSlide.position(width/3, 3 * height/7 - height/20);
-	greenSlide = createSlider(0,255,255);
+	greenSlide = createSlider(0,255,15);
 	greenSlide.position(width/3, 3 * height/7);
-	blueSlide = createSlider(0,255,188);
+	blueSlide = createSlider(0,255,240);
 	blueSlide.position(width/3, 3 * height/7 + height/20);
 	/*
 	colorChoose = createButton('This color!');
@@ -74,7 +74,7 @@ function setup(){
 		else {
 			bubblesDone = true;
 			hideDom();
-			socket.emit('team1', bubbles);
+			socket.emit('team2', bubbles);
 		}
 	});
 
@@ -110,7 +110,7 @@ function draw() {
 		fill(0);
 		text('You\'re all set! Good luck!', width/2, height/3);
 		textSize(18);
-		text('[button] should send to localhost:8000/players/1', width/2, 2 * height/3);
+		text('[button] should send to localhost:8000/players/2', width/2, 2 * height/3);
 		bubbleTeam();
 	}
 }

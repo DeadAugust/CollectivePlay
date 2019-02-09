@@ -53,9 +53,9 @@ screen.on('connection', function (socket) {
 	});
 
 //- - - - -  Player Sockets
-var players = io.of('/players/team1');
+var team1 = io.of('/players/team1');
 
-players.on('connection',	function (socket){
+team1.on('connection',	function (socket){
 		console.log('We have a new player: ' + socket.id);
 /*
     // Listen for data from this client
@@ -78,16 +78,43 @@ players.on('connection',	function (socket){
       console.log(team1);
       screen.emit('team1', team1);
       // socket.broadcast.emit('team1', team1);
-      console.log('sending to screen');
+      // console.log('sending to screen');
     });
-
-    socket.on('team2', function(bubbles){
-      team2 = bubbles;
-      screen.emit('team2', team2);
-    });
-
+    
     // Listen for this client to disconnect
 		socket.on('disconnect', function() {
 			console.log("Client has disconnected " + socket.id);
 		});
 	});
+
+  var team2 = io.of('/players/team2');
+
+  team2.on('connection',	function (socket){
+  		console.log('We have a new player: ' + socket.id);
+  /*
+      // Listen for data from this client
+  		socket.on('data', function(data) {
+        // Data can be numbers, strings, objects
+  			console.log("Received: 'data' " + data);
+
+  			// Send it to all clients, including this one
+  			io.sockets.emit('data', data);
+
+        // Send it to all other clients, not including this one
+        //socket.broadcast.emit('data', data);
+
+        // Send it just this client
+        // socket.emit('data', data);
+  		});
+  */
+      socket.on('team2', function(bubbles){
+        team2 = bubbles;
+        screen.emit('team2', team2);
+        console.log(team2);
+      });
+
+      // Listen for this client to disconnect
+  		socket.on('disconnect', function() {
+  			console.log("Client has disconnected " + socket.id);
+  		});
+  	});
