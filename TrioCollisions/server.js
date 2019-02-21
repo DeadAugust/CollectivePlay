@@ -12,32 +12,68 @@ app.use(express.static('public'));
 // Create socket connection
 let io = require('socket.io').listen(server);
 
-// Listen for individual clients to connect
-io.sockets.on('connection',
-	// Callback function on connection
-  // Comes back with a socket object
-	function (socket) {
+//global variables
+var players = []; //contains ids of all connected players
+var newRoles = [];
+var started = false; //only starts game after start game button pushed on screen
 
-		console.log("We have a new client: " + socket.id);
+//Role Switching every 30 seconds
+//moved to /SCREEN
+//interval timer
+// setInterval(switchRoles, 3000); //three seconds just for debugging
+//
+// function switchRoles(){
+//   newRoles.push(newRoles[0])
+//   newRoles.shift();
+//   console.log(newRoles);
+//   socket.emit('switch', newRoles);
+// }
 
-    // Listen for data from this client
-		socket.on('data', function(data) {
-      // Data can be numbers, strings, objects
-			console.log("Received: 'data' " + data);
+// Clients in the input namespace
+var playerInputs = io.of('/players');
+// Listen for input clients to connect
+playerInputs.on('connection', function(socket){
+  console.log('A player connected: ' + socket.id);
+  players.push(socket.id);socket
+  console.log('Current number of players connected: '+ players.length);
 
-			// Send it to all clients, including this one
-			io.sockets.emit('data', data);
+  // Listen for data messages from this client
+  socket.on('data', function(data) {
+    // Data comes in as whatever was sent, including objects
+    //console.log("Received: 'data' " + data);
 
-      // Send it to all other clients, not including this one
-      //socket.broadcast.emit('data', data);
+    // Send it to all of the clients
+    socket.broadcast.emit('update', data);
+  });
 
-      // Send it just this client
-      // socket.emit('data', data);
-		});
+  // Listen for this input client to disconnect
+  // Tell all of the output clients this client disconnected
+  socket.on('disconnect', function() {
+    console.log("A player has disconnected " + socket.id);
+    screen.emit('disconnected', socket.id);
+  });
+});
 
-    // Listen for this client to disconnect
-		socket.on('disconnect', function() {
-			console.log("Client has disconnected " + socket.id);
-		});
-	}
-);
+// Clients in the screen namespace
+var screen = io.of('/screen');
+// Listen for output clients to connect
+screen.on('connection', function(socket){
+  console.log('Screen connected: ' + socket.id);
+
+  socket.on('start', function() {
+    console.log('starting game');
+    started = true;
+  });
+
+  socket.on('switch', function() {
+      newRoles.push(newRoles[0])
+      newRoles.shift();
+      console.log(newRoles);
+      playerInputs.emit('switch', newRoles);
+  });
+
+  // Listen for this output client to disconnect
+  socket.on('disconnect', function() {
+    console.log("Screen has disconnected " + socket.id);
+  });
+});
