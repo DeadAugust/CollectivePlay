@@ -15,7 +15,7 @@ function setup() {
   });
 
   //interval timer
-  setInterval(switchRoles, 3000); //three seconds just for debugging
+  setInterval(switchRoles, 30000); 
   function switchRoles(){
     socket.emit('switch');
   }
